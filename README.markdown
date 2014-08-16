@@ -2,7 +2,7 @@
 
 ## An app to demonstrate
 
-* geocoding _country, city, street, number_ addresses into lat-lang coordinates
+* geocoding *country, city, street, number* addresses into lat-lang coordinates
 * reverse-geocoding lat-lang coordinates into addresses
 * displaying locations on a map
 * calculating the (shortest) distance between two locations
@@ -26,11 +26,23 @@ To get a key: open <https://code.google.com/apis/console>, log in with your Goog
 
 ### lat and long
 
-Are the abbrevations for _latitude_ and _longitude_. As a pair they are reffered to as _coordinates_.
+Are the abbrevations for _latitude_ and _longitude_. As a pair they are refered to as _coordinates_.
 
 ### How to run it
 
-Just clone, bundle, create your postgres database and fire up your server. And thank git, github, rails and rake to make at that easy!
+*Just clone, bundle, create your postgres database, migrate, create the seeds, fire up your server and visit* <http://localhost:3000/>
+
+And thank git, github, rails and rake to make it that easy!
+
+---
+
+## Displaying maps
+
+Displaying the map is an integral part, as it is demanded by the Google Geolocation API terms & conditions to display a map after making a request.
+
+To display a map with only one marked location, use an URL like: <http://localhost:3000/locations?ids[]=6>
+
+To display a map with multiple marked locations, use an URL like: <http://localhost:3000/locations?ids[]=1&ids[]=2&ids[]=3>
 
 ---
 
@@ -78,13 +90,6 @@ It is possible to add lat and lang coordinates to Location objects in bulk. The 
 
 ## Tests
 
-The specs use a default stub to not hit the API
-
-## Next steps
-
-* Display a map with one location
-* Display a map with all nearby locations
-
-Displaying the map is an integral part, as it is demanded by the Google Geolocation API terms & conditions to display a map after making a request.
+The specs use a default stub to not hit the API.
 
 ---
