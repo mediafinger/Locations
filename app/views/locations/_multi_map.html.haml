@@ -1,0 +1,19 @@
+%div.map
+  Map of
+  - locations.each do |location|
+    %span.location-address= location.result || location.address || location.search
+
+  %div{style: "width: 800px;"}
+
+    %div#multi_markers{style: "width: 800px; height: 600px;"}
+
+
+:javascript
+
+  var multiHandler = Gmaps.build('Google');
+
+  multiHandler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+    var markers = multiHandler.addMarkers(#{raw Location.markers(locations)});
+    multiHandler.bounds.extendWith(markers);
+    multiHandler.fitMapToBounds();
+  });

@@ -7,6 +7,10 @@ class Location < ActiveRecord::Base
 
   after_validation :complete_location               # auto-fetch coordinates, or reverse-geocode
 
+  def address
+    [street, city, zip_code, province, country].compact.join(', ').presence
+  end
+
   def coordinates
     if latitude.present? && longitude.present?
       { latitude: latitude, longitude: longitude }
@@ -15,14 +19,20 @@ class Location < ActiveRecord::Base
     end
   end
 
+  def self.markers(locations)
+    Gmaps4rails.build_markers(locations) do |location, marker|
+      marker.lat          location.latitude
+      marker.lng          location.longitude
+      marker.title        "X marks the spot"
+      marker.infowindow   location.result || location.address || location.search
+    end.to_json
+  end
+
+
   private
 
   def full_street_address
     search || address
-  end
-
-  def address
-    [street, city, zip_code, province, country].compact.join(',').presence
   end
 
   def complete_location

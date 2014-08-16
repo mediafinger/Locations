@@ -1,0 +1,10 @@
+/ = render 'single_map', location: @locations.first
+
+- if @locations.blank?
+  %div
+    No locations found, try this link to display the first 3 database entries on a map:
+
+    = link_to "locations?ids[]=1&ids[]=2&ids[]=3", locations_path(ids: [1,2,3])
+
+- else
+  = render 'multi_map', locations: @locations

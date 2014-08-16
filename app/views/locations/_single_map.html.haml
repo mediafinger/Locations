@@ -1,0 +1,22 @@
+%div.map
+  Map of
+  %span.location-address= location.result || location.address || location.search
+
+  %div{style: "width: 800px;"}
+
+    %div#geolocation{style: "width: 800px; height: 600px;"}
+
+
+:javascript
+
+  var handler = Gmaps.build('Google');
+
+  handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+    if(navigator.geolocation)
+      navigator.geolocation.getCurrentPosition(displayOnMap);
+  });
+
+  function displayOnMap(position){
+    var markers = handler.addMarkers(#{raw Location.markers(location)});
+    handler.map.centerOn(markers[0]);
+  };
