@@ -7,6 +7,13 @@ class Location < ActiveRecord::Base
 
   after_validation :complete_location               # auto-fetch coordinates, or reverse-geocode
 
+  def coordinates
+    if latitude.present? && longitude.present?
+      { latitude: latitude, longitude: longitude }
+    else
+      {}
+    end
+  end
 
   private
 
@@ -19,9 +26,9 @@ class Location < ActiveRecord::Base
   end
 
   def complete_location
-    if full_street_address.present? && !(latitude.present? && longitude.present?)
+    if full_street_address.present? && coordinates.empty?
       geocode
-    elsif (latitude.present? && longitude.present?) && result.blank?
+    elsif coordinates.present? && result.blank?
       reverse_geocode
     end
   end
