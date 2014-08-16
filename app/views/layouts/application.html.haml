@@ -3,7 +3,13 @@
   %head
     %title LocationsApp
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+
+    / include Google Maps JS for gmpas4rails gem display
+    = javascript_include_tag "http://maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry"
+    = javascript_include_tag "http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js"
+
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+
     = csrf_meta_tags
   %body
     = yield
