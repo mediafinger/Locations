@@ -38,7 +38,7 @@ And thank git, github, rails and rake to make it that easy!
 
 ## Displaying maps
 
-Displaying the map is an integral part, as it is demanded by the Google Geolocation API terms & conditions to display a map after making a request.
+Displaying the map is an integral part, as it is demanded by the Google Geolocation API terms & conditions that the fetched geolocation data may only be used to display Google Maps. The views are created with help of the Gmaps4Rails gem <https://github.com/apneadiving/Google-Maps-for-Rails>.
 
 To display a map with only one marked location, use an URL like: <http://localhost:3000/locations?ids[]=6>
 
