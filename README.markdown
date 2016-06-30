@@ -22,7 +22,9 @@ The app uses the Google Geolocation API. To have a quota of 2500 per day (instea
 
           export GOOGLE_LOCATION_API_KEY=mySecretGoogleAPIKey
 
-To get a key: open <https://code.google.com/apis/console>, log in with your Google Account, click the Services link from the left-hand menu in the APIs Console, then activate the Geocoding API and generate a new key.
+To get a key: open <https://console.developers.google.com/apis/library>, log in with your Google Account, click the Services link from the left-hand menu in the APIs Console, then activate the Geocoding API and generate a new key.
+
+You also have to activate the Google Maps JavaScript API as your API Key will be used in the javascript_include_tag that the gem gmaps4rails needs to display the map.
 
 ### lat and long
 
