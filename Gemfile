@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails',        '4.1.1'
+gem 'rails',        '4.2.6'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'geocoder'
 gem 'gmaps4rails'
@@ -12,7 +12,6 @@ gem 'pg'
 gem 'puma'
 gem 'sass-rails',   '~> 4.0.3'
 gem 'sucker_punch'
-gem 'therubyracer',  '~> 0.12.0'
 gem 'turbolinks'
 gem 'uglifier',     '>= 1.3.0'
 
